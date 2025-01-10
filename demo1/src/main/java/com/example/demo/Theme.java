@@ -39,7 +39,11 @@ public class Theme {
 		this.description = description;
 	}
 
-
+	//ToString
+		@Override
+		public String toString() {
+			return "Theme [ id: " + id + ", Description: " + description + ", Name: " + name + "]" ;
+		}
 
 	
 }

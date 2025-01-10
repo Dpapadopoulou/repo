@@ -1,27 +1,50 @@
 package com.example.demo;
 
+import java.util.ArrayList;
+
 public class Book {
 	
 	private Integer id;
 	private String title;
 	private String publisher;
-	private String publisheYear;
+	private String publishedYear;
 	private String description;
 	private Author author;
-	private Theme theme;
+	private ArrayList<Theme> theme;
+	private boolean borrowed;
 	
-	public Book(Integer id,String title,String publisher,String publishYear,String description) {
-		
+
+
+
+
+	public Book(int id, String title, String publisher, String publishYear, String description, Author author,
+			ArrayList<Theme> arrayList) {
 		this.id = id;
 		this.title = title;
 		this.publisher = publisher;
-		this.publisheYear = publishYear;
+		this.publishedYear = publishYear;
 		this.description = description;
-		
-		
+		this.author = author;
+		this.theme = arrayList;
 	}
-	
-	
+
+
+
+
+	public boolean isBorrowed() {
+		return borrowed;
+	}
+
+
+
+
+	public void setBorrowed(boolean borrowed) {
+		this.borrowed = borrowed;
+	}
+
+
+
+
 	public Integer getId() {
 		return id;
 	}
@@ -52,18 +75,37 @@ public class Book {
 		this.publisher = publisher;
 	}
 	public String getPublisheYear() {
-		return publisheYear;
+		return publishedYear;
 	}
 	public void setPublisheYear(String publisheYear) {
-		this.publisheYear = publisheYear;
+		this.publishedYear = publisheYear;
 	}
 	
-	public Theme getTheme() {
+	
+	public String getPublishedYear() {
+		return publishedYear;
+	}
+
+
+
+	public void setPublishedYear(String publishedYear) {
+		this.publishedYear = publishedYear;
+	}
+
+
+
+	public ArrayList<Theme> getTheme() {
 		return theme;
 	}
-	public void setTheme(Theme theme) {
+
+
+
+	public void setTheme(ArrayList<Theme> theme) {
 		this.theme = theme;
 	}
+
+
+
 	public String getDescription() {
 		return description;
 	}
@@ -71,7 +113,14 @@ public class Book {
 		this.description = description;
 	}
 	
-	
+
+	//ToString
+			@Override
+			public String toString() {
+				return "Book [id=" + id + ", title=" + title + ", publisher=" + publisher + ", publishedYear="
+						+ publishedYear + ", description=" + description + ", author=" + author + ", theme=" + theme
+						+ "]";
+			}
 	
 	
 }

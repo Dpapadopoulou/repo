@@ -8,12 +8,17 @@ public class Author {
 	private String dateOfBirth;
 	
 	public Author(Integer id,String firstName,String lastName,String dateOfBirth) {
-		
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.dateOfBirth = dateOfBirth;
 	}
 
 	public Integer getId() {
 		return id;
 	}
+	
+	
 
 	public void setId(Integer id) {
 		this.id = id;
@@ -44,6 +49,10 @@ public class Author {
 	}
 
 
-	
+	//ToString
+			@Override
+			public String toString() {
+				return "Author [ id: " + id + ", FirstName: " + firstName + ", LastName: " + lastName + ", Date of Birth: " + dateOfBirth +"]" ;
+			}
 	
 }
