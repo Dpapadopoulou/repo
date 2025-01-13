@@ -57,29 +57,7 @@ public class BorrowServices {
 	
 	
 	public List<Borrow> makeBorrowing(Integer borrowid, String borrowStartDate, String borrowEndDate, Integer bookid , Integer userid) {
-	    for (Book book : Bookservices.getBooks()) {
-	        if (book.getId().equals(bookid)) { 
-	            if (book.isBorrowed()) {
-	                System.out.println("This book isn't available!");
-	                return borrows;
-	            } else {
-	                Borrow newBorrow = new Borrow();
-	                newBorrow.setUser(userid).
-	                newBorrow.setId(borrowid);
-	                newBorrow.setStartDate(borrowStartDate);
-	                newBorrow.setEndDate(borrowEndDate);
-	                newBorrow.setId(bookid); 
-
-	                borrows.add(newBorrow); 
-	                book.setBorrowed(true);
-
-	                System.out.println("This book just borrowed!");
-	                return borrows; 
-	            }
-	        }
-	    }
-
-	    System.out.println("Book with the given ID not found!");
+	    
 	    return borrows; 
 	}
  
