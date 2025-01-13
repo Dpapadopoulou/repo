@@ -2,15 +2,49 @@ package com.example.demo;
 
 import java.util.ArrayList;
 
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="books")
+
+
+
 public class Book {
 	
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@JsonIgnore
+	@Column(name= "book_id", nullable=false)
 	private Integer id;
+	
+	@Column(name= "title", nullable=false)
 	private String title;
+	
+	@Column(name= "publisher", nullable=false)
 	private String publisher;
+	
+	@Column(name= "publishedYear", nullable=true)
 	private String publishedYear;
+	
+	@Column(name= "description", nullable=true)
 	private String description;
+	
+	@Column(name= "author", nullable=false)
 	private Author author;
+	
+	@Column(name= "theme", nullable=false)
 	private ArrayList<Theme> theme;
+	
+	@Column(name= "borrowed", nullable=false)
 	private boolean borrowed;
 	
 

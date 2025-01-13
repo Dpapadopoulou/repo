@@ -2,6 +2,7 @@ package com.example.demo;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -9,32 +10,31 @@ import java.util.ArrayList;
 @Service
 public class ThemeServices {
 
-	private List<Theme> themes = new ArrayList<Theme>();
+	
+	@Autowired ThemeRepository repository;
 	
 	
 	
 	public List<Theme> getThemes() {
-		return themes;
+		return repository.findAll();
 	}
 
-	public void setThemes(List<Theme> themes) {
-		this.themes = themes;
-	}
 
 	public List<Theme> removeTheme(Integer id) {
-		themes.removeIf(theme -> theme.getId()==id);
-		return themes;
+		repository.deleteById(id);
+		return this.getThemes();
+		
 	}
 	
 	
 	public List<Theme> addTheme(Theme theme) {
-          themes.add(theme);
-          return themes;
+		repository.save(theme);
+		return this.getThemes();
 	}
 	
 	
 	public List<Theme> updateTheme(String newName,String newDescription,Integer id) {
-		for (Theme theme1 : themes) {
+		for (Theme theme1 : getThemes()) {
 			if(theme1.getId()== id) {
 				if(newName !=null) 
 					theme1.setName(newName); 
@@ -45,7 +45,7 @@ public class ThemeServices {
 				
 			}
 		}
-		return themes;
+		return this.getThemes();
 	
 	}
 
